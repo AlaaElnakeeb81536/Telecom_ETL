@@ -28,7 +28,7 @@ SQL Server - SSIS (SQL Server Integration Services)
 It consist of Control Flow and Data Flow
 # Control Flow
 ![image](https://github.com/user-attachments/assets/1827dcaf-8dda-465a-bf19-ce175becf558)
-### Rephrased Steps for Data Package Execution and Auditing
+### Steps for Data Package Execution and Auditing
 
 1. **Batch ID Generation**: 
    - For each run of the package, generate a new `batch_id` based on the last `batch_id` in the `audit_dim`.
@@ -46,6 +46,21 @@ It consist of Control Flow and Data Flow
 # Data flow
 
 ![image](https://github.com/user-attachments/assets/2c02a36b-1562-4ffc-813b-bfedf0d320a3)
+
+### Data Quality and Auditing Steps
+
+1. **Data Quality Check**:
+   - Read data from the files and validate it against predefined data quality rules.
+2. **Handling Rejected Data**:
+   - If data is rejected from the source, store it in the `error_source_output` table.
+3. **Destination Constraints Validation**:
+   - If data matches the destination constraints, insert it into the destination table.
+   - If data does not match the destination constraints, record it in the `error_destination_output` table.
+4. **Auditing Data**:
+   - Retrieve the number of rejected and inserted records for auditing purposes.
+   - Map the `audit_id` to the corresponding records in the audit tables.
+5. **Derived Columns Creation**:
+   - Create necessary derived columns, such as `tac` and `snr`, from the `imei` column.
 
 
 
