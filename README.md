@@ -61,6 +61,10 @@ It consist of Control Flow and Data Flow
    - Map the `audit_id` to the corresponding records in the audit tables.
 5. **Derived Columns Creation**:
    - Create necessary derived columns, such as `tac` and `snr`, from the `imei` column.
+  
+   ### Database Schema Design
+   ![image](https://github.com/user-attachments/assets/3cb121ed-6297-4e2c-bc93-023c6a4d0afd)
+
 
 
 
