@@ -31,14 +31,14 @@ It consist of Control Flow and Data Flow
 ### Steps for Data Package Execution and Auditing
 
 1. **Batch ID Generation**: 
-   - For each run of the package, generate a new `batch_id` based on the last `batch_id` in the `audit_dim`.
+   - For each run of the package, generate a new batch_id based on the last batch_id in the audit_dim.
 2. **Data Extraction**:
    - Iterate through the data files to extract the necessary data.
 3. **Audit Record Insertion**:
-   - Insert a new record into the audit dimension, which includes the `batch_id`, package name, and file name.
+   - Insert a new record into the audit dimension, which includes the batch_id, package name, and file name.
 4. **Data Flow Execution**:
    - Execute the data flow task to load the file data into the database.
-   - Capture required auditing data, such as `rejected_rows`, `inserted_rows`, and `all_rows_processed`.
+   - Capture required auditing data, such as rejected_rows, inserted_rows, and all_rows_processed.
 5. **Audit Record Update**:
    - Update the audit record with the number of processed rows, rejected rows, and inserted rows.
 6. **File Management**:
@@ -52,10 +52,10 @@ It consist of Control Flow and Data Flow
 1. **Data Quality Check**:
    - Read data from the files and validate it against predefined data quality rules.
 2. **Handling Rejected Data**:
-   - If data is rejected from the source, store it in the `error_source_output` table.
+   - If data is rejected from the source, store it in the error_source_output table.
 3. **Destination Constraints Validation**:
    - If data matches the destination constraints, insert it into the destination table.
-   - If data does not match the destination constraints, record it in the `error_destination_output` table.
+   - If data does not match the destination constraints, record it in the error_destination_output table.
 4. **Auditing Data**:
    - Retrieve the number of rejected and inserted records for auditing purposes.
    - Map the audit_id to the corresponding records in the audit tables.
