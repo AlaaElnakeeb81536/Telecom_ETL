@@ -58,7 +58,7 @@ It consist of Control Flow and Data Flow
    - If data does not match the destination constraints, record it in the `error_destination_output` table.
 4. **Auditing Data**:
    - Retrieve the number of rejected and inserted records for auditing purposes.
-   - Map the `audit_id` to the corresponding records in the audit tables.
+   - Map the audit_id to the corresponding records in the audit tables.
 5. **Derived Columns Creation**:
    - Create necessary derived columns, such as `tac` and `snr`, from the `imei` column.
   
